@@ -24,10 +24,13 @@ export PATH="$HOME_BIN/bin:$PATH"
 export BYOBU_PREFIX=`brew --prefix`
 
 export PATH="~/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local:/etc/paths.d:/etc/manpaths.d:/opt/PalmPDK/bin:/opt/PalmSDK/0.1/bin"
+export PATH="$(brew --prefix josegonzalez/php/php53)/bin:$PATH"
 
 export MIDGARD_ENV_GLOBAL_SHAREDIR="/usr/local/share/midgard2"
 
 export PYTHONPATH="/Library/Python/2.7/site-packages:$PYTHONPATH"
+
+export TEXMFROOT="/usr/local/texlive/2012"
 
 if [ -f `brew --prefix`/etc/bash_completion ]; then
   . `brew --prefix`/etc/bash_completion
@@ -69,5 +72,3 @@ fi
 if [ -f ~/.bash_aliases ]; then
   . ~/.bash_aliases
 fi
-
-[[ -s $HOME/.tmuxinator/scripts/tmuxinator ]] && source $HOME/.tmuxinator/scripts/tmuxinator
