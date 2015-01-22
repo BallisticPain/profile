@@ -30,3 +30,6 @@ fi
 git clone git://github.com/vgod/vimrc.git ~/.vim
 cd ~/.vim
 git submodule update --init
+
+### Initialize Bash ###
+source ~/.bashrc
