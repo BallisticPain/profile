@@ -11,3 +11,8 @@ ln -s ~/profile/gvimrc ~/.gvimrc
 
 ### BIN ###
 ln -s ~/profile/bin ~/bin
+
+### INSTALL vgod VIM ###
+git clone git://github.com/vgod/vimrc.git ~/.vim
+cd ~/.vim
+git submodule update --init
