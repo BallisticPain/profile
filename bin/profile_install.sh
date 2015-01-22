@@ -1,16 +1,30 @@
 #!/bin/bash
 ### BASH PROFILE ###
-ln -s ~/profile/bashrc ~/.bashrc
-ln -s ~/profile/bash_profile ~/.bash_profile
-ln -s ~/profile/bash_aliases ~/.bash_aliases
+if ! [[ -L ~/.bashrc ]]; then
+    ln -s ~/profile/bashrc ~/.bashrc
+fi
+if ! [[ -L ~/.bash_profile ]]; then
+    ln -s ~/profile/bash_profile ~/.bash_profile
+fi
+if ! [[ -L ~/.bash_aliases ]]; then
+    ln -s ~/profile/bash_aliases ~/.bash_aliases
+fi
 
 ### TEXT EDITORS ###
-ln -s ~/profile/atom ~/.atom
-ln -s ~/profile/vimrc ~/.vimrc
-ln -s ~/profile/gvimrc ~/.gvimrc
+if ! [[ -L ~/.atom ]]; then
+    ln -s ~/profile/atom ~/.atom
+fi
+if ! [[ -L ~/.vimrc ]]; then
+    ln -s ~/profile/vimrc ~/.vimrc
+fi
+if ! [[ -L ~/.gvimrc ]]; then
+    ln -s ~/profile/gvimrc ~/.gvimrc
+fi
 
 ### BIN ###
-ln -s ~/profile/bin ~/bin
+if ! [[ -L ~/bin ]]; then
+    ln -s ~/profile/bin ~/bin
+fi
 
 ### INSTALL vgod VIM ###
 git clone git://github.com/vgod/vimrc.git ~/.vim
