@@ -28,3 +28,10 @@ alias sf2dges="sf2d:generate:entities"
 
 #sites
 alias sites="cd /data/sites"
+
+#I & R Partners
+alias gfdev="cd /Users/ballisticpain/Development/GaugeFlex/"
+alias gf2dev="cd /Users/ballisticpain/Development/GaugeFlexII/"
+alias tfdev="cd /Users/ballisticpain/Development/TekFlex/"
+alias dev="cd /Users/ballisticpain/Development"
+alias 2020dev="cd /Users/ballisticpain/Development/2020Research"
