@@ -65,3 +65,14 @@ fi
 if [ -f ~/.bash_aliases ]; then
   . ~/.bash_aliases
 fi
+
+# Boot2Docker
+if hash boot2docker 2>/dev/null; then
+    dockerRunning="$(boot2docker status)"
+
+    if test $dockerRunning != "running"; then
+        boot2docker up
+    fi
+
+    `boot2docker shellinit`
+fi
