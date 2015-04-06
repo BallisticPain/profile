@@ -31,4 +31,7 @@ ln -s profile/gvimrc .gvimrc
 
 Install vgod .vimrc plugins
 ```
+git clone git://github.com/vgod/vimrc.git ~/.vim
+cd ~/.vim
+git submodule update --init
 ```
