@@ -2,3 +2,33 @@ dotFiles
 ========
 
 My dot Files
+
+Clone the repository to your user directory.
+```
+git clone https://github.com/BallisticPain/profile.git ~/profile
+```
+
+Setup local bin directory
+```
+cd ~ &&
+ln -s profile/bin bin
+```
+
+Setup links to files (bash)
+```
+cd ~ &&
+ln -s profile/bash_aliases .bash_aliases &&
+ln -s profile/bash_profile .bash_profile &&
+ln -s profile/bashrc .bashrc
+```
+
+Setup links to files (vim)
+```
+cd ~ &&
+ln -s profile/vimrc .vimrc &&
+ln -s profile/gvimrc .gvimrc
+```
+
+Install vgod .vimrc plugins
+```
+```
