@@ -16,10 +16,23 @@ export GREP_COLOR="1;32"
 export EDITOR="vim"
 
 export PATH="~/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local:/etc/paths.d:/etc/manpaths.d:/opt/PalmPDK/bin:/opt/PalmSDK/0.1/bin"
+export PATH="$(brew --prefix homebrew/php/php71)/bin:$PATH"
 
-if [ -f `brew --prefix`/etc/bash_completion ]; then
-  . `brew --prefix`/etc/bash_completion
-fi
+export HOMEBREW_GITHUB_API_TOKEN="11c93377a1babcb85f6408419d8680fe509fd9b4"
+
+# use brew's folder for pyenv files
+export PYENV_ROOT=/usr/local/var/pyenv
+if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+
+# PPower use venv for VIRTUAL_ENV
+export VIRTUAL_ENV=venv
+
+# Android Dev
+export ANDROID_HOME=/usr/local/Cellar/android-sdk/24.4.1_1
+export JAVA_HOME=`/usr/libexec/java_home`
+
+# if we have pyenv give me auto completion
+if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
 # if we have git completion, use a git-aware prompt
 if [ -f `brew --prefix`/etc/bash_completion ]; then
@@ -65,3 +78,9 @@ fi
 if [ -f ~/.bash_aliases ]; then
   . ~/.bash_aliases
 fi
+
+###-tns-completion-start-###
+if [ -f /Users/ballisticpain/.tnsrc ]; then 
+    source /Users/ballisticpain/.tnsrc 
+fi
+###-tns-completion-end-###

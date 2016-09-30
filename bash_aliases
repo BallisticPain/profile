@@ -3,6 +3,9 @@ export LS_OPTIONS='--color=auto'
 export CLICOLOR='Yes'
 export LSCOLORS=''
 
+# Virtualenv
+alias sv='if [[ ! -d "venv" && ! -L "venv" ]] ; then virtualenv venv; touch requirements.txt; fi; source venv/bin/activate; export PS1="(${PWD##*/}-venv)$_OLD_VIRTUAL_PS1"'
+
 #ls
 alias ll="ls -alh"
 
@@ -14,17 +17,21 @@ alias gco="git checkout"
 alias gpl="git pull"
 alias gps="git push"
 
-#symfony 1.x
-alias sf1="./symfony"
-alias sf1cc="sf1 cache:clear"
+#symfony 
+alias sf="bin/console"
+alias sfcc="sf cache:clear"
+alias sfd="sf doctrine"
+alias sfdsu="sfd:schema:update"
+alias sfdfl="sfd:fixture:load"
+alias sfdges="sfd:generate:entities"
 
-#symfony 2.x
-alias sf2="app/console"
-alias sf2cc="sf2 cache:clear"
-alias sf2d="sf2 doctrine"
-alias sf2dsu="sf2d:schema:update"
-alias sf2dfl="sf2d:fixture:load"
-alias sf2dges="sf2d:generate:entities"
+#docker
+alias d="docker"
+alias dc="docker-compose"
+alias dm="docker-machine"
+
+#phinx
+alias phinx="./vendor/bin/phinx"
 
 #sites
 alias sites="cd /data/sites"
