@@ -22,6 +22,12 @@ ln -s profile/bash_profile .bash_profile &&
 ln -s profile/bashrc .bashrc
 ```
 
+Setup/Run link to settings
+```
+ln -s profile/macos .macos &&
+./.macos
+```
+
 Setup links to files (vim)
 ```
 cd ~ &&
