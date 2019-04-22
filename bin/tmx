@@ -1,10 +1,8 @@
 #!/bin/bash
 
-tmux new-session -d -s 'jarvis'
-tmux new-window -t 'jarvis:0' -n 'code' 'vim -c NERDTree'
-tmux new-window -t 'jarvis:1' -n 'command'
-tmux new-window -t 'jarvis:2' -n 'command'
-tmux new-window -t 'jarvis:3' -n 'logs' 'sudo tail -f /var/log/apache2/*log'
+tmux new-session -d -s jarvis -n code dev
+tmux new-window -t jarvis:1 -n command dev
+tmux new-window -t jarvis:2 -n command dev
 
 tmux select-window -t 'jarvis:0'
 tmux -2 attach-session -t 'jarvis'

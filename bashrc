@@ -4,7 +4,7 @@
 
 # history
 HISTCONTROL=ignoredups
-HISTSIZE=500
+HISTSIZE=1000
 shopt -s histappend
 shopt -s cmdhist
 
@@ -14,25 +14,51 @@ shopt -s checkwinsize
 export GREP_OPTIONS="--color=auto"
 export GREP_COLOR="1;32"
 export EDITOR="vim"
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
 
-export PATH="~/bin:/usr/local/bin:/usr/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/X11/bin:/usr/local:/etc/paths.d:/etc/manpaths.d:/opt/PalmPDK/bin:/opt/PalmSDK/0.1/bin"
-export PATH="$(brew --prefix homebrew/php/php71)/bin:$PATH"
+# pyenv
+export PYENV_ROOT="${HOME}/.pyenv"
 
-export HOMEBREW_GITHUB_API_TOKEN="11c93377a1babcb85f6408419d8680fe509fd9b4"
+# prepeare paths variables for easier management
+export PATHS_BREW="/usr/local/bin:/usr/local/sbin:/usr/local"
+export PATHS_MINE="${HOME}/bin"
+export PATHS_MYSQL="/usr/local/mysql/bin"
+export PATHS_MYSQL_57="/usr/local/opt/mysql@5.7/bin"
+export PATHS_OPENSSL="/usr/local/opt/openssl/bin"
+export PATHS_PIPENV="${HOME}/.local/bin"
+export PATHS_SYSTEM="/usr/bin:/bin:/usr/sbin:/sbin:/etc/paths.d:/etc/manpaths.d"
+export PATHS_X11="/usr/X11/bin"
+export PATHS_YARN="${HOME}/.yarn/bin"
 
-# use brew's folder for pyenv files
-export PYENV_ROOT=/usr/local/var/pyenv
-if which pyenv-virtualenv-init > /dev/null; then eval "$(pyenv virtualenv-init -)"; fi
+# paths in order of importance
+export PATH="${PATHS_MINE}:${PATHS_OPENSSL}:${PATHS_PIPENV}:${PATHS_YARN}:${PATHS_BREW}:${PATHS_X11}:${PATHS_SYSTEM}:${PATHS_MYSQL}"
+
+
+#if type brew 2&>/dev/null; then
+#    for completion_file in $(brew --prefix)/etc/bash_completion.d/*; do
+#        source "$completion_file"
+#    done
+#fi
+
+
+# use brew's openssl binaries, libraries, and pkg config
+export LDFLAGS="-L/usr/local/opt/openssl/lib"
+export CPPFLAGS="-I/usr/local/opt/openssl/include"
+export PKG_CONFIG_PATH="/usr/local/opt/openssl/lib/pkgconfig"
+
+# pipenv
+eval "$(pipenv --completion)"
+export PIPENV_IGNORE_VIRTUALENVS=1
+
+export HOMEBREW_GITHUB_API_TOKEN="9dc09bd1fa383709b51eef7b70384e967dfb7a61"
+
+# Android Dev?
+export ANDROID_HOME=~/Library/Android/sdk
+export JAVA_HOME=/Library/Java/Home
 
 # PPower use venv for VIRTUAL_ENV
 export VIRTUAL_ENV=venv
-
-# Android Dev
-export ANDROID_HOME=/usr/local/Cellar/android-sdk/24.4.1_1
-export JAVA_HOME=`/usr/libexec/java_home`
-
-# if we have pyenv give me auto completion
-if which pyenv > /dev/null; then eval "$(pyenv init -)"; fi
 
 # if we have git completion, use a git-aware prompt
 if [ -f `brew --prefix`/etc/bash_completion ]; then
@@ -42,14 +68,6 @@ else
     # use a super-minimal prompt by default
     PS1='\w \$ '
 fi
-
-#if [ -f /usr/local/git/contrib/completion/git-completion.bash ]; then
-#  . /usr/local/git/contrib/completion/git-completion.bash
-#  PS1='\w $(__git_ps1 "(%s) ")\$ '
-#  else
-#    # use a super-minimal prompt by default
-#    PS1='\w \$ '
-#fi
 
 # ls colors
 # (via http://github.com/inky/dotfiles/blob/master/home/.bashrc)
@@ -69,6 +87,8 @@ if [ "$TERM" != "dumb" ]; then
     esac
 fi
 
+eval $(thefuck --alias)
+
 # Include environment-specific odds-n-ends
 #if [ -f ~/.bashrc.local ]; then
   #. ~/.bashrc.local
@@ -80,7 +100,14 @@ if [ -f ~/.bash_aliases ]; then
 fi
 
 ###-tns-completion-start-###
-if [ -f /Users/ballisticpain/.tnsrc ]; then 
-    source /Users/ballisticpain/.tnsrc 
+if [ -f ~/.tnsrc ]; then
+    source ~/.tnsrc
 fi
 ###-tns-completion-end-###
+
+if command -v pyenv 1>/dev/null 2>&1; then
+    eval "$(pyenv init -)"
+fi
+
+# iTerm 2 Integrations
+test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"

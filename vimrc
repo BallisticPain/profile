@@ -6,6 +6,12 @@
 
 
 " For pathogen.vim: auto load all plugins in .vim/bundle
+
+let g:pathogen_disabled = []
+if !has('gui_running')
+   call add(g:pathogen_disabled, 'powerline')
+endif
+
 call pathogen#runtime_append_all_bundles()
 call pathogen#helptags()
 
@@ -18,6 +24,8 @@ set ruler		" show the cursor position all the time
 set autoread		" auto read when file is changed from outside
 
 
+filetype off          " necessary to make ftdetect work on Linux
+syntax on
 filetype on           " Enable filetype detection
 filetype indent on    " Enable filetype-specific indenting
 filetype plugin on    " Enable filetype-specific plugins
@@ -36,6 +44,7 @@ if has("gui_running")	" GUI color and font settings
   set t_Co=256          " 256 color mode
   set cursorline        " highlight current line
   colors moria
+  highlight CursorLine          guibg=#003853 ctermbg=24  gui=none cterm=none
 else
 " terminal color settings
   colors vgod
@@ -173,9 +182,8 @@ vnoremap > >gv
 cmap cd. lcd %:p:h
 
 "--------------------------------------------------------------------------- 
-" Added from JMFlava's VimRC
+" Added from JMFlava's VimRC -- ADDED by Jarvis
 "--------------------------------------------------------------------------- 
-
 " Boy, typing :w sure is a pain!
 map ; :w<CR>
 map ;; :silent w !sudo tee %<CR>
@@ -185,8 +193,6 @@ map g <C-w>
 
 " Let's use jj as an alternative to the ESC key
 inoremap jj <Esc>
-
-
 
 
 " Writing Restructured Text (Sphinx Documentation) {
@@ -279,6 +285,7 @@ endfun
 " PLUGIN SETTINGS
 "--------------------------------------------------------------------------- 
 
+
 " ------- vim-latex - many latex shortcuts and snippets {
 
 " IMPORTANT: win32 users will need to have 'shellslash' set so that latex
@@ -315,6 +322,9 @@ let g:CommandTMaxHeight = 15
 
 " --- SuperTab
 let g:SuperTabDefaultCompletionType = "context"
+let g:SuperTabCompletionContexts = ['s:ContextText', 's:ContextDiscover']
+let g:SuperTabContextDiscoverDiscovery = ["&completefunc:<c-x><c-u>", "&omnifunc:<c-x><c-o>"]
+
 
 " --- EasyMotion
 "let g:EasyMotion_leader_key = '<Leader>m' " default is <Leader>w
@@ -330,4 +340,17 @@ let g:tagbar_autofocus = 1
 
 " --- PowerLine
 " let g:Powerline_symbols = 'fancy' " require fontpatcher
+"
+
+" --- SnipMate
+let g:snipMateAllowMatchingDot = 0
+
+" --- coffee-script
+au BufWritePost *.coffee silent CoffeeMake! -b | cwindow | redraw! " recompile coffee scripts on write
+
+" --- vim-gitgutter
+let g:gitgutter_enabled = 1
+
+" set ejs filetype to html
+au BufNewFile,BufRead *.ejs set filetype=html
 
