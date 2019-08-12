@@ -1,0 +1,12 @@
+#!/bin/bash
+
+PROJECT_NAME=caredfor
+PROJECT_PATH=$HOME/Development/caredfor
+
+tmux new-session -d -s $PROJECT_NAME -n main -c $PROJECT_PATH \; \
+  new-window -t $PROJECT_NAME:1 -n build -c $PROJECT_PATH \; \
+  new-window -t $PROJECT_NAME:2 -n status -c $PROJECT_PATH \; \
+  split-window -v -c $PROJECT_PATH \; \
+
+tmux select-window -t $PROJECT_NAME:0
+tmux -2 attach-session -t $PROJECT_NAME

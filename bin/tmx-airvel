@@ -1,0 +1,13 @@
+#!/bin/bash
+
+PROJECT_NAME=airvel
+PROJECT_PATH=$HOME/Development/airvel
+
+tmux new-session -d -s $PROJECT_NAME -n main -c $PROJECT_PATH \; \
+  new-window -t $PROJECT_NAME:1 -n api -c $PROJECT_PATH/nimbus-api \; \
+  new-window -t $PROJECT_NAME:2 -n ops -c $PROJECT_PATH/nimbus-ops \; \
+  new-window -t $PROJECT_NAME:3 -n marketplace -c $PROJECT_PATH/nimbus-marketplace \; \
+  new-window -t $PROJECT_NAME:4 -n connect -c $PROJECT_PATH/nimbus-connect \; \
+
+tmux select-window -t $PROJECT_NAME:0
+tmux -2 attach-session -t $PROJECT_NAME

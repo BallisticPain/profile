@@ -1,0 +1,14 @@
+#!/bin/bash
+
+PROJECT_NAME=project-indian
+PROJECT_PATH=$HOME/Development/project-indian
+
+tmux new-session -d -s $PROJECT_NAME -n api -c $PROJECT_PATH \; \
+  new-window -t $PROJECT_NAME:1 -n vagrant -c $PROJECT_PATH \; \
+  new-window -t $PROJECT_NAME:2 -n status -c $PROJECT_PATH \; \
+  split-window -v -c $PROJECT_PATH \; \
+  new-window -t $PROJECT_NAME:3 -n ng -c "$PROJECT_PATH-ng" \; \
+  new-window -t $PROJECT_NAME:4 -n builds -c $HOME/Development/pi-server-builds \; \
+
+tmux select-window -t $PROJECT_NAME:0
+tmux -2 attach-session -t $PROJECT_NAME

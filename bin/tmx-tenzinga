@@ -1,0 +1,13 @@
+#!/bin/bash
+
+PROJECT_NAME=tenzinga
+PROJECT_PATH=$HOME/Development/tenzinga
+
+tmux new-session -d -s $PROJECT_NAME -n main -c $PROJECT_PATH \; \
+  new-window -t $PROJECT_NAME:1 -n django -c $PROJECT_PATH/ppower \; \
+  new-window -t $PROJECT_NAME:2 -n status -c $PROJECT_PATH/ppower \; \
+  split-window -v -c $PROJECT_PATH \; \
+  new-window -t $PROJECT_NAME:3 -n laradock -c $HOME/Development/laradock \; \
+
+tmux select-window -t $PROJECT_NAME:0
+tmux -2 attach-session -t $PROJECT_NAME
