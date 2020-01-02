@@ -6,8 +6,18 @@ fi
 if ! [[ -L ~/.bash_profile ]]; then
     ln -s ~/profile/bash_profile ~/.bash_profile
 fi
-if ! [[ -L ~/.bash_aliases ]]; then
-    ln -s ~/profile/bash_aliases ~/.bash_aliases
+
+### ZSH PROFILE ###
+if ! [[ -L ~/.zshrc ]]; then
+    ln -s ~/profile/zshrc ~/.zshrc
+fi
+if ! [[ -L ~/.zprofile ]]; then
+    ln -s ~/profile/zprofile ~/.zprofile
+fi
+
+### Generic PROFILE ###
+if ! [[ -L ~/.sh_aliases ]]; then
+    ln -s ~/profile/sh_aliases ~/.sh_aliases
 fi
 
 ### TEXT EDITORS ###
@@ -27,9 +37,11 @@ if ! [[ -L ~/bin ]]; then
 fi
 
 ### INSTALL vgod VIM ###
-git clone git://github.com/vgod/vimrc.git ~/.vim
-cd ~/.vim
-git submodule update --init
+# git clone git://github.com/vgod/vimrc.git ~/.vim
+# cd ~/.vim
+# git submodule update --init
 
-### Initialize Bash ###
-source ~/.bashrc
+### Initialize SHELL ###
+# source ~/.bashrc
+source ~/.zshrc
+

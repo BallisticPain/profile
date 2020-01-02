@@ -22,6 +22,12 @@ ln -s profile/bash_profile .bash_profile &&
 ln -s profile/bashrc .bashrc
 ```
 
+Setup links for tmux
+```
+cd ~ &&
+ln -s profile/tmux.conf .tmux.conf
+```
+
 Setup/Run link to settings
 ```
 ln -s profile/macos .macos &&

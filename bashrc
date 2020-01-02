@@ -51,7 +51,7 @@ export PKG_CONFIG_PATH="/usr/local/opt/openssl/lib/pkgconfig"
 eval "$(pipenv --completion)"
 export PIPENV_IGNORE_VIRTUALENVS=1
 
-export HOMEBREW_GITHUB_API_TOKEN="9dc09bd1fa383709b51eef7b70384e967dfb7a61"
+export HOMEBREW_GITHUB_API_TOKEN="86d39e009822f913c2be3b2f084396ae0afdcfc8"
 
 # Android Dev?
 export ANDROID_HOME=~/Library/Android/sdk
@@ -95,8 +95,8 @@ eval $(thefuck --alias)
 #fi
 
 # Include alias definitions
-if [ -f ~/.bash_aliases ]; then
-  . ~/.bash_aliases
+if [ -f ~/.sh_aliases ]; then
+  . ~/.sh_aliases
 fi
 
 ###-tns-completion-start-###
