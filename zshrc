@@ -1,11 +1,11 @@
 # history
 HISTCONTROL=ignoredups
 HISTSIZE=1000
-shopt -s histappend
-shopt -s cmdhist
+# shopt -s histappend
+# shopt -s cmdhist
 
 # etc
-shopt -s checkwinsize
+# shopt -s checkwinsize
 
 # grep
 export GREP_OPTIONS="--color=auto"
@@ -26,6 +26,7 @@ export PATHS_BREW="/usr/local/bin:/usr/local/sbin:/usr/local"
 export PATHS_MINE="${HOME}/bin"
 export PATHS_MYSQL="/usr/local/mysql/bin"
 export PATHS_MYSQL_57="/usr/local/opt/mysql@5.7/bin"
+export PATHS_MYSQL_56="/usr/local/opt/mysql@5.6/bin"
 export PATHS_OPENSSL="/usr/local/opt/openssl/bin"
 export PATHS_PIPENV="${HOME}/.local/bin"
 export PATHS_SYSTEM="/usr/bin:/bin:/usr/sbin:/sbin:/etc/paths.d:/etc/manpaths.d"
@@ -33,7 +34,7 @@ export PATHS_X11="/usr/X11/bin"
 export PATHS_YARN="${HOME}/.yarn/bin"
 
 # paths in order of importance
-export PATH="${PATHS_MINE}:${PATHS_OPENSSL}:${PATHS_PIPENV}:${PATHS_YARN}:${PATHS_BREW}:${PATHS_X11}:${PATHS_SYSTEM}:${PATHS_MYSQL}"
+export PATH="${PATHS_MINE}:${PATHS_OPENSSL}:${PATHS_PIPENV}:${PATHS_YARN}:${PATHS_BREW}:${PATHS_X11}:${PATHS_SYSTEM}:${PATHS_MYSQL_57}"
 
 # pipenv
 eval "$(pipenv --completion)"
@@ -57,7 +58,9 @@ export ZSH="/Users/ballisticpain/.oh-my-zsh"
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
 # See https://github.com/ohmyzsh/ohmyzsh/wiki/Themes
-ZSH_THEME="random"
+# ZSH_THEME="random"
+# List of favorites when in "random" mode.
+ZSH_THEME="xiong-chiamiov-plus"  # - has timestamp of last execution
 
 # Set list of themes to pick from when loading at random
 # Setting this variable when ZSH_THEME=random will cause zsh to load
