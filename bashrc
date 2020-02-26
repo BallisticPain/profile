@@ -51,7 +51,7 @@ export PKG_CONFIG_PATH="/usr/local/opt/openssl/lib/pkgconfig"
 eval "$(pipenv --completion)"
 export PIPENV_IGNORE_VIRTUALENVS=1
 
-export HOMEBREW_GITHUB_API_TOKEN="86d39e009822f913c2be3b2f084396ae0afdcfc8"
+export HOMEBREW_GITHUB_API_TOKEN="<new_token_here>"
 
 # Android Dev?
 export ANDROID_HOME=~/Library/Android/sdk
